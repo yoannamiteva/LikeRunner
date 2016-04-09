@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+.panel {
+	border-radius: 20px;
+}
+
+.navbar-brand {
+	font-family: 'Indie Flower', cursive;
+	font-size: 30px;
+	color: #f9ce57;
+	
+}
+
+.panel-default >.panel-heading {
+	
+	background-color: #375a7f;
+	border-color: #375a7f;
+	border-radius:20px 20px 0 0 ;
+}
+
+.panel-body {
+	
+	background-color: #a0adbc;
+	border-radius: 0 0 20px 20px;
+}
+
+.col-md-4 {
+	color: #375a7f;
+	font-size: 100%;
+}
+
+.alert {
+	border-radius: 20px;
+	background-color: #1c8dd8;
+	
+}
+
+h3 {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.btn {
+	
+	font-family: 'Ubuntu', sans-serif;
+	border-radius: 20px;
+	font-size: 25px;
+}
+
+h2 {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.money {
+	float: left;
+	height: 35px;
+	width: 35px;
+	margin-right: 15px;
+}
+
+.likes {
+	float: left;
+	height: 35px;
+	width: 35px;
+	margin-right: 15px;
+	
+}
