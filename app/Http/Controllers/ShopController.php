@@ -17,15 +17,8 @@ class ShopController extends Controller
 	
 		$shop = Shop::where('user_id',Auth::user()->id)->first();
 	
-		if(!$shop){
-			$shop =  new Shop();
-			$shop->user_id=Auth::user()->id;
-			$shop->save();
-		}
-	
 		$shopItem  = new Item();
-		$shopItem->item_id=$itemId;
-		$shopItem->shop_id= $cart->id;
+		$shopItem->id=$itemId;
 		$shopItem->save();
 	
 		return redirect('/shop');
@@ -34,12 +27,6 @@ class ShopController extends Controller
 	
 	public function showShop(){
 		$shop = Shop::where('user_id',Auth::user()->id)->first();
-	
-		if(!$shop){
-			$shop =  new Shop();
-			$shop->user_id=Auth::user()->id;
-			$shop->save();
-		}
 	
 		$items = $shop->shopItems;
 		$total=0;
@@ -54,5 +41,23 @@ class ShopController extends Controller
 	
 		Item::destroy($id);
 		return redirect('/shop');
+	}
+	
+	public function update(Request $request, $id)
+	{
+		if (!$request->name or !$request->price or !$request->description or !$request->img_address) {
+			return Response::json([
+					'error' => [
+							'message' => 'Please Provide name, price, description and image!'
+					]
+			], 422);
+		}
+		$item = Item::find($id);
+		$item->name = $request->name;
+		$item->price = $request->price;
+		$item->description = $request->description;
+		$item->img_address = $request->img_address;
+		$item->save();
+		return $item;
 	}
 }
