@@ -15,7 +15,7 @@ public function __construct()
 		$this->middleware('auth');
 	}
 	
-	public function addItem ($item)
+	public function addItem($item)
 	{
 		$shopItem  = new Item();
 		$shopItem->id = $item->id;
@@ -41,12 +41,15 @@ public function __construct()
 	{
 		$user = Auth::user();
 		$item = Item::find($id);
+		$user_item = new UsersItems();
 		if($user->money >= $item->price)
 		{
-			$user
-			->items()
-			->attach($item->id);
+			$user_item->user_id = $user->id;
+			$user_item->item_id = $item->id;
 			$user->money -= $item->price ;
+			
+			$user_item->save();
+			$user->save();
 		}
 		
 		return back();
