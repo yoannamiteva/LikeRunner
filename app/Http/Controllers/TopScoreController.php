@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use DB;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -25,6 +27,11 @@ class TopScoreController extends Controller
 	 */
 	public function index()
 	{
-		return view('top100');
+		$counter = 1;
+		$users = DB::table('users')
+					->orderBy('likes' , 'DESC')
+					->get();
+		return view('top100' , compact('users' , 'counter'));
 	}
+	
 }
