@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Item;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -12,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'likes', 'facebook_id'
+        'name', 'email', 'password', 'likes', 'facebook_id', 'money'
     ];
 
     /**
@@ -23,4 +25,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    
+    public function showUserItems($id)
+    {
+    	$user = User::findOrFail($id);
+    	$items = $user->items()->get();
+    	return $items;
+    }
+    
+    
+    
 }
