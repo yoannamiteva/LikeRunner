@@ -24,7 +24,7 @@ Route::get('/login/facebook/callback' , 'Auth\AuthController@handleProviderCallb
 Route::get('/addItem/{itemId}', 'ShopController@addItem');
 Route::get('/removeItem/{itemId}', 'ShopController@removeItem');
 Route::get('/shop', 'ShopController@showShop');
-Route::patch('/shop', 'ShopController@buyItem');
+Route::get('/buyItem/{itemId}', 'ShopController@buyItem');
 
 Route::get('/top', 'TopScoreController@index');
 
