@@ -21,12 +21,16 @@ Route::get('/home', 'HomeController@index');
 Route::get('/login/facebook' , 'Auth\AuthController@redirectToProvider');
 Route::get('/login/facebook/callback' , 'Auth\AuthController@handleProviderCallback');
 
+Route::get('/shop', 'ShopController@showShop');
 Route::get('/addItem/{itemId}', 'ShopController@addItem');
 Route::get('/removeItem/{itemId}', 'ShopController@removeItem');
-Route::get('/shop', 'ShopController@showShop');
 Route::get('/buyItem/{itemId}', 'ShopController@buyItem');
 
 Route::get('/top', 'TopScoreController@index');
+
+Route::get('/game', function(){
+		return view('game');
+});
 
 
 
