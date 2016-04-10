@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-sm-8">
 						<div>
+					<form class="form-horizontal" role="form" method="POST" action="">    
+	                	{!! csrf_field() !!}   
+	                	{{ method_field('PATCH')}}       
 							<table class="table table-striped table-hover ">
 							  <thead>
 							    <tr>
@@ -27,10 +30,15 @@
                         <td  style="text-align: center">
                         </td>
                         <td ></td>
-                        <td ><strong>{{$item->price}}</strong></td>
+                        <td ><strong>{{$item->price}} $</strong></td>
+                        <td ><strong>{{$item->description}} </strong></td>
                         <td >
                             <a href="/removeItem/{{$item->id}}"> <button type="button" class="btn btn-danger">
                                     <span class="fa fa-remove"></span> Remove
+                                </button>
+                            </a>
+                            <a href="/buyItem/{{$item->id}}"> <button type="button" class="btn btn-info">
+                                    <span class="fa fa-shopping-cart"></span> Buy
                                 </button>
                             </a>
                         </td>
@@ -52,13 +60,11 @@
                                 <span class="fa fa-shopping-cart"></span> Continue Shopping
                             </button>
                         </a></td>
-                    <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="fa fa-play"></span>
-                        </button></td>
+                   
                 </tr>
                 </tbody>
             </table>
+            </form>
         </div>
     </div>
 @endsection
