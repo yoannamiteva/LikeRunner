@@ -37,4 +37,18 @@ public function __construct()
 		return redirect('/shop');
 	}
 	
+	public function buyItem($id)
+	{
+		$user = Auth::user();
+		$item = Item::find($id);
+		if($user->money >= $item->price)
+		{
+			$user
+			->items()
+			->attach($item->id);
+			$user->money -= $item->price ;
+		}
+	}
+	
+	
 }
