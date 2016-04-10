@@ -48,6 +48,8 @@ public function __construct()
 			->attach($item->id);
 			$user->money -= $item->price ;
 		}
+		
+		return back();
 	}
 	
 	
