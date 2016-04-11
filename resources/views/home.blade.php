@@ -29,13 +29,13 @@
 					<h3>Run for more Likes! You must be the first in top100</h3>
 					
 				</div>
-				<a href="game" class="btn btn-danger btn-lg">Start Game</a>
-		
+				<a href="game" class="btn btn-danger btn-lg" id="button">Start Game</a>
+
 			</div>
 	
 	
-			<div class="col-sm-3 col-sm-offset-2">
-				<img  src="http://2.bp.blogspot.com/-Wr-keslHbL0/TlTpgRrAZcI/AAAAAAAAAGA/gzoiUQ3S1rE/s1600/confused-person.png">
+			<div class="col-sm-3">
+				<img src="files/runner.png">
 			</div>	
 	</div>
 </div>
