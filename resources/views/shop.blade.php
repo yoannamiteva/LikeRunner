@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<div class="col-sm-8">      
-			<table class="table table-bordered panel panel-default">
+			<table class="table table-striped">
 				  <thead class="panel-heading">  
 				    <tr>
 				      <th>Item</th>
