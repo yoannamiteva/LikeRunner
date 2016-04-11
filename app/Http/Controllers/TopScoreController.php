@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
 use DB;
 use Illuminate\Http\Request;
@@ -31,7 +32,8 @@ class TopScoreController extends Controller
 		$users = DB::table('users')
 					->orderBy('likes' , 'DESC')
 					->get();
-		return view('top100' , compact('users' , 'counter'));
+		$auth = Auth::user();
+		return view('top100' , compact('users' , 'counter' , 'auth'));
 	}
 	
 }
