@@ -1,3 +1,4 @@
+
 @CHARSET "UTF-8";
 
 .panel {
@@ -7,6 +8,7 @@
 table {
 	border-radius: 20px;
 	border: 1px solid blue;
+
 }
 
 .navbar-brand {
@@ -25,12 +27,14 @@ table {
 	background-color: #375a7f;
 	border-color: #375a7f;
 	border-radius:20px 20px 0 0 ;
+	
 }
 
 .panel-body {
 	
 	background-color: #a0adbc;
 	border-radius: 0 0 20px 20px;
+	
 }
 
 .col-md-4 {
@@ -77,3 +81,14 @@ h2 {
 th, td {
 	text-align: center;
 }
+
+.img-welcome {
+	margin-left:25%;
+}
+
+.img-like {
+	margin-left: 45%;
+	margin-top: 5%;
+}
+
+
