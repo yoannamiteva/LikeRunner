@@ -13,15 +13,15 @@
 		</div>
 		<div class="col-sm-8">
 			<div>
-				<table class="table table-striped table-hover ">
-				  <thead>
+				<table class="table table-bordered panel panel-default">
+				  <thead class="panel-heading">
 				    <tr>
 				      <th>#</th>
 				      <th>Player Name</th>
 				      <th>Likes</th>
 				    </tr>
 				  </thead>
-				  <tbody>
+				  <tbody class="panel-body">
 				   @foreach($users as $user)
 				    <tr>
 				      <td>{{$counter++}}</td>
@@ -37,11 +37,11 @@
 		<div class="col-sm-2 ">
 			<div>
 				<img class="money" src="files/coins.png">
-				<h2>Money <span class="badge">100</span></h2>
+				<h2>Money <span class="badge">{{$auth->money}}</span></h2>
 			</div>
 			<div>
 				<img class="likes" src="files/like.png">
-				<h2>Likes <span class="badge">0</span></h2>
+				<h2>Likes <span class="badge">{{$auth->likes}}</span></h2>
 			</div>
 		</div>
 	</div>
