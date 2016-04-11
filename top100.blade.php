@@ -13,15 +13,15 @@
 		</div>
 		<div class="col-sm-8">
 			<div>
-				<table class="table table-striped table-hover ">
-				  <thead>
+				<table class="table table-bordered panel panel-default">
+				  <thead class="panel-heading">
 				    <tr>
 				      <th>#</th>
 				      <th>Player Name</th>
 				      <th>Likes</th>
 				    </tr>
 				  </thead>
-				  <tbody>
+				  <tbody class="panel-body">
 				   @foreach($users as $user)
 				    <tr>
 				      <td>{{$counter++}}</td>
