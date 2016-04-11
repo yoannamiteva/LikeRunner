@@ -28,9 +28,8 @@ Route::get('/buyItem/{itemId}', 'ShopController@buyItem');
 
 Route::get('/top', 'TopScoreController@index');
 
-Route::get('/game', function(){
-		return view('game');
-});
+Route::get('/game', 'GameController@index');
+Route::post('/game' , 'GameController@changes');
 
 
 
