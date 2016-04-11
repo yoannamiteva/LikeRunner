@@ -14,11 +14,11 @@
 		<div class="col-sm-2 col-sm-offset-8">
 			<div>
 				<img class="money" src="files/coins.png">
-				<h2>Money <span class="badge">100</span></h2>
+				<h2>Money <span class="badge">{{$auth->money}}</span></h2>
 			</div>
 			<div>
 				<img class="likes" src="files/like.png">
-				<h2>Likes <span class="badge">0</span></h2>
+				<h2>Likes <span class="badge">{{$auth->likes}}</span></h2>
 			</div>
 		</div>
 	</div>
