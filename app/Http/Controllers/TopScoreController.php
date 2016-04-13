@@ -31,7 +31,9 @@ class TopScoreController extends Controller
 		$counter = 1;
 		$users = DB::table('users')
 					->orderBy('likes' , 'DESC')
-					->get();
+					->paginate(10);
+					
+		
 		$auth = Auth::user();
 		return view('top100' , compact('users' , 'counter' , 'auth'));
 	}
