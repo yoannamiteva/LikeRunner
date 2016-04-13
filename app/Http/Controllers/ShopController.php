@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\UsersItems;
 use Auth;
 use App\Item;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 class ShopController extends Controller
@@ -20,20 +20,27 @@ public function __construct()
 		$shopItem  = new Item();
 		$shopItem->id = $item->id;
 		$shopItem->save();
-	
+		
+		
 		return redirect('/shop');
 	}
 	
 	public function showShop()
 	{
-		//$user = Auth::user;
+
+		$auth = Auth::user();
 		$items = Item::all();
-		return view('shop' , compact('items'));
+		return view('shop' , compact('items' , 'auth'));
 	}
-	
 	public function removeItem($id)
 	{
-		Item::destroy($id);
+		$item = Item::find($id);
+		$user = Auth::user();
+		
+		$user->items()->detach($id);
+		$user->money += $item->price;
+		
+		$user->save();
 		return redirect('/shop');
 	}
 	
@@ -41,16 +48,15 @@ public function __construct()
 	{
 		$user = Auth::user();
 		$item = Item::find($id);
-		$user_item = new UsersItems();
+	
 		if($user->money >= $item->price)
 		{
-			$user_item->user_id = $user->id;
-			$user_item->item_id = $item->id;
-			$user->money -= $item->price ;
-			
-			$user_item->save();
+			$user->items()->attach($id);
+			$user->money -= $item->price;
 			$user->save();
 		}
+		
+		
 		
 		return back();
 	}
